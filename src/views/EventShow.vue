@@ -6,16 +6,16 @@
       <h5>Organized by {{ event.organizer }}</h5>
       <h5>Catgory: {{ event.category }}</h5>
     </div>
-    <BaseIcon name="map"><h2>Location</h2></BaseIcon>
+    <BaseIcon name="map"><h3>Location</h3></BaseIcon>
     <address>{{ event.location }}</address>
-    <h2>Event Details</h2>
+    <h3 class="-text-lightgray">Event Details</h3>
     <p>{{ event.description }}</p>
-    <h2>
+    <h3 class="-text-lightgray">
       Attendees
       <span class="badge -fill-gradient">
         {{ event.attendees ? event.attendees.length : 0 }}
       </span>
-    </h2>
+    </h3>
     <ul class="list-group">
       <li
         v-for="(attendee, index) in event.attendees"
@@ -40,9 +40,11 @@ export default {
   },
   created() {
     EventService.getEvent(this.id)
+      // eslint-disable-next-line
       .then((res) => {
         this.event = res.data;
       })
+      // eslint-disable-next-line
       .catch((error) => {
         console.log("There was an error:" + error.res);
       });

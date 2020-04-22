@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import upperFirst from "lodash/upperFirst";
 import camelCase from "lodash/camelCase";
+
 // import BaseIcon from "@/components/BaseIcon.vue";
 
 // globally register a component; two args, the name you want to use and the import reference from above...will usually be the same but don't have to be
@@ -50,5 +51,6 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
+  // eslint-disable-next-line
   render: (h) => h(App)
 }).$mount("#app");

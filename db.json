@@ -49,6 +49,27 @@
       "date": "2019-02-02T23:27:00.000Z",
       "time": "1:00",
       "attendees": []
+    },
+    {
+      "id": 4002554,
+      "user": {
+        "id": "def456",
+        "name": "Rob"
+      },
+      "category": "sustainability",
+      "organizer": "Rob",
+      "title": "Beach Cleanup",
+      "description": "Let's clean the beach!",
+      "location": "The beach",
+      "date": "2020-05-05T18:00:00.000Z",
+      "time": "12:00",
+      "attendees": [
+        { "id": 1001, "name": "Rila Fukushima" },
+        { "id": 1002, "name": "Madison Hu" },
+        { "id": 1003, "name": "Karen Fukuhara" },
+        { "id": 1004, "name": "Tao Okamoto" },
+        { "id": 1005, "name": "Angela Yu" }
+      ]
     }
   ]
 }
