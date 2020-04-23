@@ -139,55 +139,6 @@
           "name": "Angela Yu"
         }
       ]
-    },
-    {
-      "id": 9798234,
-      "user": {
-        "id": "def456",
-        "name": "Rob"
-      },
-      "category": "community",
-      "organizer": {
-        "id": "def456",
-        "name": "Rob"
-      },
-      "title": "Spanking Rila!",
-      "description": "We're going to spank Rila.",
-      "location": "Issaquah",
-      "date": "2020-04-23T23:53:00.000Z",
-      "time": "12:00",
-      "attendees": [
-        {
-          "id": 1001,
-          "name": "Rila Fukushima"
-        },
-        {
-          "id": 1004,
-          "name": "Tao Okamoto"
-        },
-        {
-          "id": 1005,
-          "name": "Angela Yu"
-        }
-      ]
-    },
-    {
-      "id": 4560640,
-      "user": {
-        "id": "def456",
-        "name": "Rob"
-      },
-      "category": "housing",
-      "organizer": {
-        "id": "def456",
-        "name": "Rob"
-      },
-      "title": "lol",
-      "description": "lolo",
-      "location": "lolo",
-      "date": "2020-04-30T01:01:00.000Z",
-      "time": "13:00",
-      "attendees": []
     }
   ]
 }

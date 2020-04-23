@@ -7,7 +7,7 @@
 
 <script>
 import EventCard from "@/components/EventCard.vue";
-import EventService from "@/services/EventService.js";
+import { mapState } from "vuex";
 
 export default {
   /* eslint-disable */
@@ -15,20 +15,13 @@ export default {
   components: {
     EventCard
   },
-  data() {
-    return {
-      events: []
-    };
-  },
+  // call the action inside the created() lifecycle hook (the action is fetchEvents and we defined it in our store index.js file)
   created() {
-    EventService.getEvents()
-      .then((res) => {
-        this.events = res.data;
-      })
-      .catch((error) => {
-        console.log("There was an error:" + error.res);
-      });
-  }
+    this.$store.dispatch("fetchEvents");
+  },
+  // we're getting access to our "events" state (an array) in our store index.js file by using the mapState helper (imported from vuex above) and
+  // still displaying one card for each event in the array above in our EventCard for loop
+  computed: mapState(["events"])
 };
 </script>
 
