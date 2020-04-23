@@ -3,13 +3,15 @@
     <div class="event-header">
       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
       <h1 class="title">{{ event.title }}</h1>
-      <h5>Organized by {{ event.organizer }}</h5>
-      <h5>Catgory: {{ event.category }}</h5>
+      <h5>
+        Organized by {{ event.organizer ? event.organizer.name : "None" }}
+      </h5>
+      <h5>Category: {{ event.category ? event.category : "None" }}</h5>
     </div>
     <BaseIcon name="map"><h3>Location</h3></BaseIcon>
-    <address>{{ event.location }}</address>
+    <address>{{ event.location ? event.location : "None" }}</address>
     <h3 class="-text-lightgray">Event Details</h3>
-    <p>{{ event.description }}</p>
+    <p>{{ event.description ? event.description : "None" }}</p>
     <h3 class="-text-lightgray">
       Attendees
       <span class="badge -fill-gradient">
@@ -22,7 +24,7 @@
         :key="index"
         class="list-item"
       >
-        <b>{{ attendee.name }}</b>
+        <b>{{ event.attendees ? attendee.name : " " }}</b>
       </li>
     </ul>
   </div>
@@ -46,7 +48,7 @@ export default {
       })
       // eslint-disable-next-line
       .catch((error) => {
-        console.log("There was an error:" + error.res);
+        console.log("There was an error:" + error);
       });
   }
 };

@@ -14,10 +14,22 @@
       "date": "2019-01-03T21:54:00.000Z",
       "time": "2:00",
       "attendees": [
-        { "id": 1001, "name": "Rila Fukushima" },
-        { "id": 1002, "name": "Madison Hu" },
-        { "id": 1003, "name": "Karen Fukuhara" },
-        { "id": 1004, "name": "Tao Okamoto" }
+        {
+          "id": 1001,
+          "name": "Rila Fukushima"
+        },
+        {
+          "id": 1002,
+          "name": "Madison Hu"
+        },
+        {
+          "id": 1003,
+          "name": "Karen Fukuhara"
+        },
+        {
+          "id": 1004,
+          "name": "Tao Okamoto"
+        }
       ]
     },
     {
@@ -33,7 +45,28 @@
       "location": "Catlandia",
       "date": "2019-01-31T22:09:00.000Z",
       "time": "7:00",
-      "attendees": []
+      "attendees": [
+        {
+          "id": 1001,
+          "name": "Rila Fukushima"
+        },
+        {
+          "id": 1002,
+          "name": "Madison Hu"
+        },
+        {
+          "id": 1003,
+          "name": "Karen Fukuhara"
+        },
+        {
+          "id": 1004,
+          "name": "Tao Okamoto"
+        },
+        {
+          "id": 1005,
+          "name": "Angela Yu"
+        }
+      ]
     },
     {
       "id": 4582797,
@@ -48,7 +81,28 @@
       "location": "Puptown ",
       "date": "2019-02-02T23:27:00.000Z",
       "time": "1:00",
-      "attendees": []
+      "attendees": [
+        {
+          "id": 1001,
+          "name": "Rila Fukushima"
+        },
+        {
+          "id": 1002,
+          "name": "Madison Hu"
+        },
+        {
+          "id": 1003,
+          "name": "Karen Fukuhara"
+        },
+        {
+          "id": 1004,
+          "name": "Tao Okamoto"
+        },
+        {
+          "id": 1005,
+          "name": "Angela Yu"
+        }
+      ]
     },
     {
       "id": 4002554,
@@ -64,12 +118,76 @@
       "date": "2020-05-05T18:00:00.000Z",
       "time": "12:00",
       "attendees": [
-        { "id": 1001, "name": "Rila Fukushima" },
-        { "id": 1002, "name": "Madison Hu" },
-        { "id": 1003, "name": "Karen Fukuhara" },
-        { "id": 1004, "name": "Tao Okamoto" },
-        { "id": 1005, "name": "Angela Yu" }
+        {
+          "id": 1001,
+          "name": "Rila Fukushima"
+        },
+        {
+          "id": 1002,
+          "name": "Madison Hu"
+        },
+        {
+          "id": 1003,
+          "name": "Karen Fukuhara"
+        },
+        {
+          "id": 1004,
+          "name": "Tao Okamoto"
+        },
+        {
+          "id": 1005,
+          "name": "Angela Yu"
+        }
       ]
+    },
+    {
+      "id": 9798234,
+      "user": {
+        "id": "def456",
+        "name": "Rob"
+      },
+      "category": "community",
+      "organizer": {
+        "id": "def456",
+        "name": "Rob"
+      },
+      "title": "Spanking Rila!",
+      "description": "We're going to spank Rila.",
+      "location": "Issaquah",
+      "date": "2020-04-23T23:53:00.000Z",
+      "time": "12:00",
+      "attendees": [
+        {
+          "id": 1001,
+          "name": "Rila Fukushima"
+        },
+        {
+          "id": 1004,
+          "name": "Tao Okamoto"
+        },
+        {
+          "id": 1005,
+          "name": "Angela Yu"
+        }
+      ]
+    },
+    {
+      "id": 4560640,
+      "user": {
+        "id": "def456",
+        "name": "Rob"
+      },
+      "category": "housing",
+      "organizer": {
+        "id": "def456",
+        "name": "Rob"
+      },
+      "title": "lol",
+      "description": "lolo",
+      "location": "lolo",
+      "date": "2020-04-30T01:01:00.000Z",
+      "time": "13:00",
+      "attendees": []
     }
   ]
 }

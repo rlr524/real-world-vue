@@ -7,7 +7,7 @@
       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
       <h4 class="title">{{ event.title }}</h4>
       <BaseIcon name="users">
-        {{ event.attendees.length }} are attending
+        {{ event.attendees ? event.attendees.length : 0 }} are attending
       </BaseIcon>
     </div>
   </router-link>
