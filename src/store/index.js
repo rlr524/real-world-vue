@@ -19,7 +19,9 @@ export default new Vuex.Store({
       "food",
       "community"
     ],
-    events: []
+    events: [],
+    eventsTotal: 0,
+    event: {}
   },
   mutations: {
     ADD_EVENT(state, event) {
@@ -27,6 +29,12 @@ export default new Vuex.Store({
     },
     SET_EVENTS(state, events) {
       state.events = events;
+    },
+    SET_EVENTS_TOTAL(state, eventsTotal) {
+      state.eventsTotal = eventsTotal;
+    },
+    SET_EVENT(state, event) {
+      state.event = event;
     }
   },
   actions: {
@@ -35,14 +43,31 @@ export default new Vuex.Store({
         commit("ADD_EVENT", event);
       });
     },
-    fetchEvents({ commit }) {
-      EventService.getEvents()
+    fetchEvents({ commit }, { perPage, page }) {
+      EventService.getEvents(perPage, page)
         .then((res) => {
+          commit("SET_EVENTS_TOTAL", parseInt(res.headers["x-total-count"]));
           commit("SET_EVENTS", res.data);
         })
         .catch((error) => {
-          console.log("There was an error:" + error);
+          console.log("There was an error: " + error);
         });
+    },
+    fetchEvent({ commit, getters }, id) {
+      let event = getters.getEventById(id);
+      if (event) {
+        commit("SET_EVENT", event);
+      } else {
+        EventService.getEvent(id)
+          // eslint-disable-next-line
+          .then((res) => {
+            commit("SET_EVENT", res.data);
+          })
+          // eslint-disable-next-line
+          .catch((error) => {
+            console.log("There was an error:" + error);
+          });
+      }
     }
   },
   modules: {},

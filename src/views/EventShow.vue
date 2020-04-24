@@ -31,26 +31,14 @@
 </template>
 
 <script>
-import EventService from "@/services/EventService.js";
+import { mapState } from "vuex";
 
 export default {
   props: ["id"],
-  data() {
-    return {
-      event: {}
-    };
-  },
   created() {
-    EventService.getEvent(this.id)
-      // eslint-disable-next-line
-      .then((res) => {
-        this.event = res.data;
-      })
-      // eslint-disable-next-line
-      .catch((error) => {
-        console.log("There was an error:" + error);
-      });
-  }
+    this.$store.dispatch("fetchEvent", this.id);
+  },
+  computed: mapState(["event"])
 };
 </script>
 

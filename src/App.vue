@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <NavBar />
-    <router-view />
+    <!-- add the key to reload components when the URL changes, including any query paramters, so pagination works -->
+    <router-view :key="$route.fullPath" />
   </div>
 </template>
 
