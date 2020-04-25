@@ -4,12 +4,15 @@
       <span class="eyebrow">@{{ event.time }} on {{ event.date }}</span>
       <h1 class="title">{{ event.title }}</h1>
       <h5>
-        Organized by {{ event.organizer ? event.organizer.name : "None" }}
+        Organized by
+        {{ event.organizer ? event.organizer.name : "None" }}
       </h5>
       <h5>Category: {{ event.category ? event.category : "None" }}</h5>
     </div>
     <BaseIcon name="map"><h3>Location</h3></BaseIcon>
-    <address>{{ event.location ? event.location : "None" }}</address>
+    <address>
+      {{ event.location ? event.location : "None" }}
+    </address>
     <h3 class="-text-lightgray">Event Details</h3>
     <p>{{ event.description ? event.description : "None" }}</p>
     <h3 class="-text-lightgray">
@@ -31,14 +34,19 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   props: ["id"],
   created() {
-    this.$store.dispatch("fetchEvent", this.id);
+    this.fetchEvent(this.id);
   },
-  computed: mapState(["event"])
+  computed: mapState({
+    // eslint-disable-next-line
+    event: (state) => state.event.event
+  }),
+  // using the mapActions helper here, the first argument is the namespace, the second is an array of actions to map (in this case only one)
+  methods: mapActions("event", ["fetchEvent"])
 };
 </script>
 
