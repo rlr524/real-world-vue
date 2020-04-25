@@ -4,7 +4,9 @@
     <form @submit.prevent="createEvent">
       <label for="">Select a category</label>
       <select v-model="event.category">
-        <option v-for="cat in categories" :key="cat">{{ cat }}</option>
+        <option v-for="cat in categories.categories" :key="cat">
+          {{ cat }}
+        </option>
       </select>
       <h3>Name & describe your event</h3>
       <div class="field">
@@ -79,9 +81,7 @@ export default {
           });
           this.event = this.createFreshEventObject();
         })
-        .catch((error) => {
-          console.log("There was a problem creating your event: " + error);
-        });
+        .catch(() => {});
     },
     createFreshEventObject() {
       const user = this.$store.state.user.user;
