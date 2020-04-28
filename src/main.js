@@ -4,20 +4,21 @@ import router from "./router";
 import store from "./store";
 import upperFirst from "lodash/upperFirst";
 import camelCase from "lodash/camelCase";
+import "nprogress/nprogress.css";
 
 // import BaseIcon from "@/components/BaseIcon.vue";
 
 // globally register a component; two args, the name you want to use and the import reference from above...will usually be the same but don't have to be
 // Vue.component("BaseIcon", BaseIcon);
 
-// automatic global registration
+// automatic global registration of any component beginning with "Base"
+// 1. the relative path of the components folder
+// 2. whether or not to look in subfolders
+// 3. the regular expression used to match base component filenames
 
 const requireComponent = require.context(
-  // The relative path of the components folder
   "./components",
-  // Whether or not to look in subfolders
   false,
-  // The regular expression used to match base component filenames
   /Base[A-Z]\w+\.(vue|js)$/
 );
 
