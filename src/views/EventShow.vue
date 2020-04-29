@@ -34,29 +34,13 @@
 </template>
 
 <script>
-// import { mapState, mapActions } from "vuex";
-import { mapState } from "vuex";
-import Nprogress from "nprogress";
-import store from "@/store/index.js";
-
 export default {
-  props: ["id"],
-  beforeRouteEnter(to, from, next) {
-    Nprogress.start();
-    store.dispatch("event/fetchEvent", to.params.id).then(() => {
-      Nprogress.done();
-      next();
-    });
-  },
-  // created() {
-  //   this.fetchEvent(this.id);
-  // },
-  computed: mapState({
-    // eslint-disable-next-line
-    event: (state) => state.event.event
-  })
-  // using the mapActions helper here, the first argument is the namespace, the second is an array of actions to map (in this case only one)
-  // methods: mapActions("event", ["fetchEvent"])
+  props: {
+    event: {
+      type: Object,
+      required: true
+    }
+  }
 };
 </script>
 

@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import EventService from "@/services/EventService.js";
 
 export const namespaced = true;
@@ -65,13 +63,15 @@ export const actions = {
     let event = getters.getEventById(id);
     if (event) {
       commit("SET_EVENT", event);
+      return event;
     } else {
-      EventService.getEvent(id)
-        // eslint-disable-next-line
+      // this is the promise, we need to return it so "then" will work in our router/index.js file in the beforeEnter method
+      // we're creating the promise here *then* returning it in the router file; this is an asynchronous function call
+      return EventService.getEvent(id)
         .then((res) => {
           commit("SET_EVENT", res.data);
+          return res.data;
         })
-        // eslint-disable-next-line
         .catch((error) => {
           const notification = {
             type: "error",

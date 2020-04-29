@@ -1,5 +1,5 @@
 import axios from "axios";
-import Nprogress from "nprogress";
+// import Nprogress from "nprogress";
 
 const apiClient = axios.create({
   baseURL: "http://localhost:3000",
@@ -10,15 +10,15 @@ const apiClient = axios.create({
   }
 });
 
-apiClient.interceptors.request.use((req) => {
-  Nprogress.start();
-  return req;
-});
+// apiClient.interceptors.request.use((req) => {
+//   Nprogress.start();
+//   return req;
+// });
 
-apiClient.interceptors.response.use((res) => {
-  Nprogress.done();
-  return res;
-});
+// apiClient.interceptors.response.use((res) => {
+//   Nprogress.done();
+//   return res;
+// });
 
 export default {
   getEvents(perPage, page) {
