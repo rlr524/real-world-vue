@@ -26,30 +26,42 @@
 <script>
 import EventCard from "@/components/EventCard.vue";
 import { mapState } from "vuex";
+import store from "@/store/index.js";
+
+function getPageEvents(to, next) {
+  const currentPage = parseInt(to.query.page) || 1;
+  store
+    .dispatch("event/fetchEvents", {
+      page: currentPage
+    })
+    .then(() => {
+      to.params.page = currentPage;
+      next();
+    });
+}
 
 export default {
-  /* eslint-disable */
   name: "EventList",
+  props: {
+    page: {
+      type: Number,
+      required: true
+    }
+  },
   components: {
     EventCard
   },
-  // call the action inside the created() lifecycle hook (the action is fetchEvents and we defined it in our store index.js file)
-  created() {
-    // setting perPage value here and not in data means it won't be reactive but we don't need it to be reactive and this way our component still has access to it
-    this.perPage = 3;
-    this.$store.dispatch("event/fetchEvents", {
-      perPage: this.perPage,
-      page: this.page
-    });
+  beforeRouteEnter(to, from, next) {
+    getPageEvents(to, next);
   },
   // we're getting access to our "events" state (an array) in our store index.js file by using the mapState helper (imported from vuex above) and
   // still displaying one card for each event in the array above in our EventCard for loop
+  beforeRouteUpdate(to, from, next) {
+    getPageEvents(to, next);
+  },
   computed: {
-    page() {
-      return parseInt(this.$route.query.page) || 1;
-    },
     hasNextPage() {
-      return this.event.eventsTotal > this.page * this.perPage;
+      return this.event.eventsTotal > this.page * this.event.perPage;
     },
     ...mapState(["event", "user"])
   }

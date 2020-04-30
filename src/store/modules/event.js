@@ -5,7 +5,8 @@ export const namespaced = true;
 export const state = {
   events: [],
   eventsTotal: 0,
-  event: {}
+  event: {},
+  perPage: 3
 };
 
 // best practice that mutations are only to be called from actions inside the same module, not called from other modules
@@ -45,8 +46,8 @@ export const actions = {
         throw error;
       });
   },
-  fetchEvents({ commit, dispatch }, { perPage, page }) {
-    EventService.getEvents(perPage, page)
+  fetchEvents({ commit, dispatch, state }, { page }) {
+    return EventService.getEvents(state.perPage, page)
       .then((res) => {
         commit("SET_EVENTS_TOTAL", parseInt(res.headers["x-total-count"]));
         commit("SET_EVENTS", res.data);
@@ -59,7 +60,10 @@ export const actions = {
         dispatch("notification/add", notification, { root: true });
       });
   },
-  fetchEvent({ commit, getters, dispatch }, id) {
+  fetchEvent({ commit, getters, state }, id) {
+    if (id == state.event.id) {
+      return state.event;
+    }
     let event = getters.getEventById(id);
     if (event) {
       commit("SET_EVENT", event);
@@ -67,18 +71,10 @@ export const actions = {
     } else {
       // this is the promise, we need to return it so "then" will work in our router/index.js file in the beforeEnter method
       // we're creating the promise here *then* returning it in the router file; this is an asynchronous function call
-      return EventService.getEvent(id)
-        .then((res) => {
-          commit("SET_EVENT", res.data);
-          return res.data;
-        })
-        .catch((error) => {
-          const notification = {
-            type: "error",
-            message: "There was a problem fetching the event: " + error.message
-          };
-          dispatch("notification/add", notification, { root: true });
-        });
+      return EventService.getEvent(id).then((res) => {
+        commit("SET_EVENT", res.data);
+        return res.data;
+      });
     }
   }
 };
