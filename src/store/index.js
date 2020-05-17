@@ -1,6 +1,5 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import categories from "@/store/categories.json";
 import * as user from "@/store/modules/user.js";
 import * as event from "@/store/modules/event.js";
 import * as notification from "@/store/modules/notification.js";
@@ -14,6 +13,14 @@ export default new Vuex.Store({
     notification
   },
   state: {
-    categories: categories
+    categories: [
+      "Sustainability",
+      "Nature",
+      "Animal Welfare",
+      "Housing",
+      "Education",
+      "Food",
+      "Community"
+    ]
   }
 });

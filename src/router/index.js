@@ -16,6 +16,7 @@ const routes = [
     name: "event-list",
     component: EventList,
     props: true
+    // TODO: Move the fetchEvents method into here
   },
   {
     path: "/event/:id",

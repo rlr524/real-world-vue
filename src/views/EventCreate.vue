@@ -1,64 +1,70 @@
 <template>
   <div class="event-create">
-    <h1>Create Event</h1>
+    <h1>Create an Event</h1>
     <form @submit.prevent="createEvent">
-      <label for="">Select a category</label>
-      <select v-model="event.category">
-        <option v-for="cat in categories.categories" :key="cat">
-          {{ cat }}
-        </option>
-      </select>
+      <BaseSelect
+        label="Select a category"
+        :options="categories"
+        v-model="event.category"
+        class="field"
+      />
       <h3>Name & describe your event</h3>
-      <div class="field">
-        <label>Title</label>
-        <input
-          v-model="event.title"
-          type="text"
-          placeholder="Add an event title"
-        />
-      </div>
-      <div class="field">
-        <label>Description</label>
-        <input
-          v-model="event.description"
-          type="text"
-          placeholder="Add a description"
-        />
-      </div>
+      <BaseInput
+        type="text"
+        placeholder="Title"
+        class="field"
+        aria-placeholder="Title"
+        label="Title"
+        v-model="event.title"
+      />
+      <BaseInput
+        type="text"
+        placeholder="Description"
+        class="field"
+        aria-placeholder="Description"
+        label="Description"
+        v-model="event.description"
+      />
       <h3>Where is your event?</h3>
-      <div class="field">
-        <label>Location</label>
-        <input
-          v-model="event.location"
-          type="text"
-          placeholder="Add a location"
-        />
-      </div>
+      <BaseInput
+        type="text"
+        placeholder="Add a location"
+        class="field"
+        aria-placeholder="Add a location"
+        label="Location"
+        v-model="event.location"
+      />
       <h3>When is your event?</h3>
       <div class="field">
         <label>Date</label>
-        <datepicker v-model="event.date" placeholder="Select a date" />
+        <datepicker
+          v-model="event.date"
+          placeholder="Select a date"
+          aria-placeholder="Select a date"
+        />
       </div>
-      <div class="field">
-        <label>Select a time</label>
-        <select v-model="event.time">
-          <option v-for="time in times" :key="time">{{ time }}</option>
-        </select>
-      </div>
+      <BaseSelect
+        label="Select a time"
+        :options="times"
+        v-model="event.time"
+        class="field"
+      />
       <input type="submit" class="button -fill-gradient" value="Submit" />
     </form>
   </div>
 </template>
 
 <script>
-/* eslint-disable */
-import { mapState, mapGetters } from "vuex";
+import BaseInput from "@/components/BaseInput";
+import BaseSelect from "@/components/BaseSelect";
 import Datepicker from "vuejs-datepicker";
 import NProgress from "nprogress";
 
 export default {
   components: {
-    Datepicker
+    Datepicker,
+    BaseInput,
+    BaseSelect
   },
   data() {
     const times = [];

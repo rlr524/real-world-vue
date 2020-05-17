@@ -267,6 +267,24 @@
       "date": "2020-04-29T21:27:00.000Z",
       "time": "20:00",
       "attendees": []
+    },
+    {
+      "id": 2774983,
+      "user": {
+        "id": "def456",
+        "name": "Rob"
+      },
+      "category": "Animal Welfare",
+      "organizer": {
+        "id": "def456",
+        "name": "Rob"
+      },
+      "title": "Release the hounds",
+      "description": "Release the hounds. We let the dogs out.",
+      "location": "Springfield",
+      "date": "2020-05-22T22:20:00.000Z",
+      "time": "11:00",
+      "attendees": []
     }
   ]
 }
