@@ -1,9 +1,15 @@
 <template>
   <div>
     <label v-if="label">{{ label }}</label>
-    <select :value="value" @input="updateValue" v-bind="$attrs">
+    <select
+      v-on="listeners"
+      :value="value"
+      @input="updateValue"
+      v-bind="$attrs"
+    >
       <option
         v-for="option in options"
+        :value="option"
         :key="option"
         :selected="option === value"
       >
@@ -22,11 +28,16 @@ export default {
       type: Array,
       required: true
     },
-    label: {
-      type: String,
-      default: ""
-    },
+    label: String,
     value: [String, Number]
+  },
+  computed: {
+    listeners() {
+      return {
+        ...this.$listeners,
+        input: this.updateValue
+      };
+    }
   },
   methods: {
     updateValue(event) {

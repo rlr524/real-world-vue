@@ -7,6 +7,7 @@ import Nprogress from "nprogress";
 import store from "@/store/index.js";
 import NotFound from "@/components/NotFound";
 import NetworkIssue from "@/components/NetworkIssue";
+import Example from "@/components/Example";
 
 Vue.use(VueRouter);
 
@@ -58,6 +59,11 @@ const routes = [
   {
     path: "*",
     redirect: { name: "404", params: { resource: "page" } }
+  },
+  {
+    path: "/example",
+    name: "example",
+    component: Example
   }
 ];
 
