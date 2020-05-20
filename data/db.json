@@ -285,6 +285,24 @@
       "date": "2020-05-22T22:20:00.000Z",
       "time": "11:00",
       "attendees": []
+    },
+    {
+      "id": 1756338,
+      "user": {
+        "id": "def456",
+        "name": "Rob"
+      },
+      "category": "Animal Welfare",
+      "organizer": {
+        "id": "def456",
+        "name": "Rob"
+      },
+      "title": "Puppy Parade",
+      "description": "",
+      "location": "",
+      "date": "2020-05-20T17:29:00.000Z",
+      "time": "12:00",
+      "attendees": []
     }
   ]
 }
