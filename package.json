@@ -1,6 +1,6 @@
 {
   "name": "real-world-vue",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -52,5 +52,16 @@
     "parserOptions": {
       "parser": "babel-eslint"
     }
-  }
+  },
+  "description": "## Project setup ``` npm install ```",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlr524/real-world-vue.git"
+  },
+  "author": "Rob Ranf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rlr524/real-world-vue/issues"
+  },
+  "homepage": "."
 }
