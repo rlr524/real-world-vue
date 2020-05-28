@@ -20,28 +20,23 @@
 </template>
 
 <script>
+import { formFieldMixin } from "@/mixins/formFieldMixin.js";
+
 export default {
   name: "BaseSelect",
-  inheritAttrs: false,
   props: {
     options: {
       type: Array,
       required: true
-    },
-    label: String,
-    value: [String, Number]
+    }
   },
+  mixins: [formFieldMixin],
   computed: {
     listeners() {
       return {
         ...this.$listeners,
         input: this.updateValue
       };
-    }
-  },
-  methods: {
-    updateValue(event) {
-      this.$emit("input", event.target.value);
     }
   }
 };

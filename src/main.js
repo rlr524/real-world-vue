@@ -6,8 +6,18 @@ import upperFirst from "lodash/upperFirst";
 import camelCase from "lodash/camelCase";
 import "nprogress/nprogress.css";
 import Vuelidate from "vuelidate";
+import DateFilter from "@/filters/date";
+
+Vue.filter("date", DateFilter);
 
 Vue.use(Vuelidate);
+
+// // example of a global mixin - use with caution as every component will contain it
+// Vue.mixin({
+//   mounted() {
+//     console.log("I am mixed into every component.");
+//   }
+// });
 
 // import BaseIcon from "@/components/BaseIcon.vue";
 
